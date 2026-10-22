@@ -1,5 +1,6 @@
-<div class="task-row">
-  <span>
+<div class="task-row"  [class.completed]="task().isCompleted">
+  <span (click)="onToggle()">
     {{ task().isCompleted ? '✅' : '⏳' }} {{ task().title }}
   </span>
+  <button (click)="onDelete()">حذف</button>
 </div>

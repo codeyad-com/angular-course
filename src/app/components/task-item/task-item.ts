@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 
 
 export interface Task {
@@ -16,4 +16,15 @@ export interface Task {
 })
 export class TaskItem {
   task = input.required<Task>();
+
+  delete = output<number>();
+  toggleStatus = output<number>();
+
+  onDelete() {
+    this.delete.emit(this.task().id);
+  }
+
+  onToggle() {
+    this.toggleStatus.emit(this.task().id);
+  }
 }

@@ -1,7 +1,25 @@
+<div class="dashboard">
+  <h2>مدیریت تسک‌ها</h2>
+
+  <div class="form">
+    <input 
+      type="text" 
+      placeholder="عنوان تسک جدید..." 
+      [(ngModel)]="newTaskTitle"
+    (keyup.enter)="addTask()"
+    />
+    <button (click)="addTask()">افزودن</button>
+  </div>
+
+  <hr />
+
 <div class="list">
 
     @for(item of tasks(); track item.id){
-    <app-task-item [task]="item"></app-task-item>
+    <app-task-item [task]="item" (toggleStatus)="handleToggle($event)" (delete)="handleDelete($event)"></app-task-item>
+    } @empty {
+        <li>هیچ تسک ای برای نمایش وجود ندارد</li>
     }
 
+</div>
 </div>
