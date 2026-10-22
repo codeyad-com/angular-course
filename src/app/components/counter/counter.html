@@ -1,0 +1,32 @@
+<div class="card">
+
+  <h2>کاربر: {{ userName() }}</h2>
+  <p>شمارنده فعلی: <strong> {{ count() }} </strong></p>
+  <p>دو برابر شمارنده: <strong> {{ doubleCount() }}</strong></p>
+
+  <hr />
+
+ 
+  <img width="150" [src]="profileUrl()" />
+  <br /><br />
+  
+  <!-- دکمه کاهش زمانی که مقدار کمتر از یا مساوی صفر باشد غیرفعال می‌شود -->
+  <button (click)="decrement()" [disabled]="count() <= 0">کاهش (-)</button>
+  
+  <!-- نوع ۳: Event Binding (گرفتن رویداد از کاربر با پرانتز ()) -->
+  <button (click)="increment()">افزایش (+)</button>
+  <button (click)="reset()">ریست</button>
+
+  <hr />
+
+  <!-- نوع ۴: Two-Way Data Binding (ارتباط دوطرفه با سینتکس موز در جعبه [()]) -->
+  <div class="form-group">
+    <label>ویرایش نام کاربر: </label>
+    <input type="text" [(ngModel)]="userName"/>
+  </div>
+
+  <div class="form-group">
+    <label>گام افزایش/کاهش (Step): </label>
+    <input type="number" [(ngModel)]="step" />
+  </div>
+</div>

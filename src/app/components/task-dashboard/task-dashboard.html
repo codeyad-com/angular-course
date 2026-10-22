@@ -1,0 +1,7 @@
+<div class="list">
+
+    @for(item of tasks(); track item.id){
+    <app-task-item [task]="item"></app-task-item>
+    }
+
+</div>
